@@ -1,0 +1,279 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.container {
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  margin: 10px auto;
+}
+
+h1 {
+  font-size: 100px;
+  font-weight: 100;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #ead7d7;
+  text-align: center;
+}
+
+.header {
+  width: 100%;
+  position: relative;
+}
+
+.toggle-all {
+	text-align: center;
+	width: 40px;
+	/* auto, since non-WebKit browsers doesn't support input styling */
+	height: auto;
+	position: absolute;
+	top: 10px;
+  bottom: 0;
+  left: 70px;
+	margin: auto 0;
+	border: none; /* Mobile Safari */
+	-webkit-appearance: none;
+	appearance: none;
+	opacity: 0;
+}
+
+.toggle-all + input {
+	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+.toggle-all:checked + input {
+	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+}
+
+#newtodo {
+  width: 80%;
+  margin: 10px 10% 0 10%;
+  border: none;
+  padding: 20px 20px 20px 40px;
+  font-size: 24px;
+  color: inherit;
+  box-sizing: border-box;
+  /* background: rgba(0, 0, 0, 0.003); */
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+
+:focus {
+  outline: 0 !important;
+}
+
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #ccc;
+}
+
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+}
+
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ccc;
+}
+input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #ccc;
+}
+.view {
+  position: relative;
+}
+
+#todo {
+  width: 80%;
+  margin: 0 10%;
+  display: none;
+  padding: 20px 20px 20px 40px;
+  font-size: 24px;
+  color: inherit;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  /* background: rgba(0, 0, 0, 0.003); */
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+
+.edit #todo {
+  display: block;
+}
+
+li label {
+  width: 80%;
+  margin: 0 10%;
+  display: block;
+  border: none;
+  padding: 20px 20px 20px 40px;
+  font-size: 24px;
+  color: inherit;
+  box-sizing: border-box;
+  background: white;
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+}
+
+li.completed label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+
+.edit label {
+  display: none;
+}
+
+.toggle {
+	text-align: center;
+	width: 40px;
+	/* auto, since non-WebKit browsers doesn't support input styling */
+	height: auto;
+	position: absolute;
+	top: 0;
+  bottom: 0;
+  left: 70px;
+	margin: auto 0;
+	border: none; /* Mobile Safari */
+	-webkit-appearance: none;
+	appearance: none;
+	opacity: 0;
+}
+
+li .toggle + label {
+	/*
+		Firefox requires `#` to be escaped - https://bugzilla.mozilla.org/show_bug.cgi?id=922433
+		IE and Edge requires *everything* to be escaped to render, so we do that instead of just the `#` - https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7157459/
+	*/
+	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+li .toggle:checked + label {
+	background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+}
+
+/* .destroy {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  margin-bottom: 11px;
+  transition: color 0.2s ease-out;
+} */
+
+li .destroy {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 70px;
+	bottom: 7px;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+	margin-bottom: 11px;
+  transition: color 0.2s ease-out;
+  background: white;
+  border: none;
+}
+
+li .destroy:hover {
+	color: #af5b5e;
+}
+
+li .destroy:after {
+	content: '×';
+}
+
+li:hover .destroy {
+	display: block;
+}
+
+.footer {
+  width: 80%;
+  height: 58px;
+  margin: 0 auto;
+  display: none;
+  border: none;
+  padding: 20px 20px 20px 0;
+  color: inherit;
+  box-sizing: border-box;
+  background: white;
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+  position: relative;
+  font-size: 12px;
+}
+
+.count, .footer li {
+  display: block;
+  float: left;
+}
+
+.footer ul {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.footer ul li a {
+  /* padding-left: 10px; */
+	color: inherit;
+	margin: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+
+.footer ul li a:hover {
+	border-color: rgba(175, 47, 47, 0.1);
+}
+
+.footer ul li a.selected {
+	border-color: rgba(175, 47, 47, 0.2);
+}
+
+.clear-completed {
+  display: block;
+  float: right;
+  background: white;
+  border: none;
+}
+
+.clear-completed,
+html .clear-completed:active {
+	float: right;
+	position: relative;
+	line-height: 20px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.clear-completed:hover {
+	text-decoration: underline;
+}
+
+p {
+  margin: 10px auto;
+  text-align: center;
+  color: #999;
+}
