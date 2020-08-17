@@ -5,3 +5,4 @@
 ![image](https://github.com/yxyinxiao07/todomvc/blob/master/img/1.jpg)</br>
 ![image](https://github.com/yxyinxiao07/todomvc/blob/master/img/2.jpg)</br>
 ![image](https://github.com/yxyinxiao07/todomvc/blob/master/img/3.jpg)</br>
+![image](https://github.com/yxyinxiao07/todomvc/blob/master/img/4.jpg)</br>
