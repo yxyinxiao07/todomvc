@@ -199,11 +199,7 @@ window.onload = function () {
         repaint(todolist);
         return;
       }
-      // console.log(todolist);
-      // console.log(this.value);
-      if (this.value.trim().length === 0) {
-        console.log(this.value);
-        // 如果为空，那么删除数组中对应的数据
+      if (this.value.trim().length === 0) {   // 如果为空，那么删除数组中对应的数据
         todolist.forEach(function (item, index) {
           if (item.id == curretId) {
             todolist.splice(index, 1);
@@ -211,8 +207,7 @@ window.onload = function () {
         });
         window.localStorage.setItem('todolist', JSON.stringify(todolist))
         console.log(todolist);
-      } else {
-        // 如果不为空就去改变数组中的数据
+      } else {   // 如果不为空就去改变数组中的数据
         todolist.forEach(function (item, index) {
           if (item.id == curretId) {
             item.content = todo.value;
